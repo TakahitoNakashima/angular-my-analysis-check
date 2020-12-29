@@ -1,0 +1,20 @@
+.contents {
+  margin-left: 16px;
+}
+
+.detail-contents {
+  padding-top: 32px;
+}
+
+.title {
+  padding-right: 32px;
+  font-size: large;
+}
+
+.content {
+  font-size: large;
+}
+
+.badge {
+  margin-left: 32px;
+}

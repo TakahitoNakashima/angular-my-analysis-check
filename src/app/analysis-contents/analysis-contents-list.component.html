@@ -19,9 +19,13 @@
       <div class="col-3 themed-grid-col"></div>
     </div>
     <div class="row mb-3">
-      <div class="col-3 themed-grid-col">
+      <a
+        class="col-3 themed-grid-col"
+        [routerLink]="['/stock-detail']"
+        [queryParams]="{page : u }"
+      >
         $U
-      </div>
+      </a>
       <div class="col-3 themed-grid-col">
         $107
       </div>
@@ -33,9 +37,9 @@
       </div>
     </div>
     <div class="row mb-3">
-      <div class="col-3 themed-grid-col">
+      <a class="col-3 themed-grid-col" [routerLink]="['/stock-detail', rprx]">
         $RPRX
-      </div>
+      </a>
       <div class="col-3 themed-grid-col">
         $37.9868
       </div>
@@ -47,9 +51,9 @@
       </div>
     </div>
     <div class="row mb-3">
-      <div class="col-3 themed-grid-col">
+      <a class="col-3 themed-grid-col" [routerLink]="['/stock-detail', zm]">
         $ZM
-      </div>
+      </a>
       <div class="col-3 themed-grid-col">
         $399.5250
       </div>
