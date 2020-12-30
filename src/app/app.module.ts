@@ -9,6 +9,8 @@ import { ProductListComponent } from "./product-list/product-list.component";
 import { AnalysisContentsListComponent } from "./analysis-contents/analysis-contents-list.component";
 import { StockDetailComponent } from "./analysis-contents/stock-detail/stock-detail.component";
 import { AppRoutingModule } from "./app-routing.module";
+import { AnalysisDetailComponent } from './analysis-contents/analysis-detail/analysis-detail.component';
+import { AnalysisRegistrationComponent } from './analysis-contents/analysis-registration/analysis-registration.component';
 
 @NgModule({
   imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule],
@@ -17,7 +19,9 @@ import { AppRoutingModule } from "./app-routing.module";
     TopBarComponent,
     ProductListComponent,
     AnalysisContentsListComponent,
-    StockDetailComponent
+    StockDetailComponent,
+    AnalysisDetailComponent,
+    AnalysisRegistrationComponent
   ],
   bootstrap: [AppComponent]
 })
