@@ -1,15 +1,23 @@
-<div class="row mb-4">
-  <div class="col-6 themed-grid-col">
-    <label>シンボル</label>
-    <input type="text" class="form-control" />
+<form [formGroup]="analysisForm" (ngSubmit)="onSubmit()">
+  <div class="row mb-4">
+    <div class="col-6 themed-grid-col">
+      <label>シンボル</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="analysisSymbol"
+      />
+    </div>
+    <div class="col-6 themed-grid-col">
+      <label>購入価格（計算元価格）</label>
+      <input formControlName="startPrice" type="number" class="form-control" />
+    </div>
   </div>
-  <div class="col-6 themed-grid-col">
-    <label>購入価格（計算元価格）</label>
-    <input type="number" class="form-control" />
+  <div class="row mb-4">
+    <label class="title">取引理由</label>
+    <textarea formControlName="analysisReason" cols="40" rows="10"></textarea>
   </div>
-</div>
-<div class="row mb-4">
-  <label class="title">取引理由</label>
-  <textarea cols="40" rows="10"></textarea>
-</div>
-<button type="submit" class="btn btn-primary">登録</button>
+  <button class="btn btn-primary" type="submit" (click)="onClickMe()">
+    登録
+  </button>
+</form>

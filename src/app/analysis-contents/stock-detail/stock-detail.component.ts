@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { AngularFireDatabase } from "@angular/fire/database";
 
 @Component({
   selector: "app-stock-detail",
@@ -7,12 +8,34 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
   styleUrls: ["./stock-detail.component.css"]
 })
 export class StockDetailComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private db: AngularFireDatabase) {}
 
   currentPrice: number;
   buyPrice: number;
+  startDate: string;
+  endDate: string = "";
+  analysisReason: string = "";
 
   ngOnInit() {
+    let list = [];
+    this.db.database.ref("userAnalysis").on("value", data => {
+      if (data) {
+        const rootList = data.val();
+        const key = data.key;
+        // データオブジェクトを配列に変更する
+        if (rootList != null) {
+          Object.keys(rootList).forEach((val, key) => {
+            rootList[val].id = val;
+            // Todo シンボル毎にデータを振り分けられるようにする
+            if (rootList[val].analysisSymbol === "u") {
+              this.startDate = rootList[val].startDate;
+              this.analysisReason = rootList[val].analysisReason;
+              this.buyPrice = rootList[val].startPrice;
+            }
+          });
+        }
+      }
+    });
     this.getStockInfo().subscribe(resp => {
       console.log(resp);
       console.log(resp["price"].regularMarketPrice.raw);

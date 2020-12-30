@@ -18,11 +18,11 @@
     <div class="row mb-4">
       <div class="col-6 themed-grid-col">
         <label class="title">開始日</label>
-        <label class="content">2020/12/29</label>
+        <label class="content">{{ startDate }}</label>
       </div>
       <div class="col-6 themed-grid-col">
         <label class="title">終了日</label>
-        <label class="content"></label>
+        <label class="content">{{ endDate }}</label>
       </div>
     </div>
     <div class="row mb-4">
@@ -33,7 +33,7 @@
     </div>
     <div class="row mb-4">
       <label class="title">取引理由</label>
-      <textarea disabled></textarea>
+      <textarea disabled>{{ analysisReason }}</textarea>
     </div>
     <div class="row mb-4">
       <label class="title">取引結果・考察</label>
